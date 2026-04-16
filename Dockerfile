@@ -1,11 +1,8 @@
-# Use an OpenJDK runtime as a parent image
-FROM openjdk:17-jdk-slim
+# Replace the deprecated openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jdk-alpine
 
-# Set the working directory in the container
+# The rest of your Dockerfile remains the same
 WORKDIR /app
-
-# Copy the executable jar file from the target folder to the container
 COPY target/*.jar app.jar
-
-# Run the jar file
 ENTRYPOINT ["java", "-jar", "app.jar"]
+
